@@ -3,32 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class FruitGen : MonoBehaviour
+public  class FruitGen : MonoBehaviour
 {
-    public GameObject fruit;
+    public GameObject fruittemplate;
     public int[] fruitinfo;
     public Transform pos;
+    public GameObject newfruit;
 
     public SpriteRenderer spriteRenderer;
     public float timer = 5f;
 
-    // Start is called before the first frame update
+    public player player;
 
-    void Start()
+   public IEnumerator  Genfruit( )
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public GameObject Genfruit()
-    {
-       int fruitindex =  Random.Range(0, fruitinfo.Length);
-        GameObject newfruit = Instantiate(fruit, pos.position, Quaternion.identity);
+       int fruitindex =  Random.Range(0, fruitinfo.Length);//random fruit from fruit array
+        if (newfruit != null)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        newfruit = Instantiate(fruittemplate, pos.position, Quaternion.identity);
         newfruit.GetComponent<Rigidbody2D>().simulated =false;
 
         spriteRenderer = newfruit.GetComponent<SpriteRenderer>();
@@ -69,7 +63,13 @@ public class FruitGen : MonoBehaviour
 
             
         }
-        return newfruit;
+       player.Heldfruit = newfruit; 
+       player.Heldfruit.transform.SetParent(player.transform);
+        yield return newfruit;
+       
+
     }
+
+
 
 }

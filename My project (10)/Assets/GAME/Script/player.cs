@@ -6,24 +6,20 @@ public class player : MonoBehaviour
 {
     public FruitGen FruitGen;
     public GameObject Heldfruit;
+
+
     // Start is called before the first frame update
-    void Start()
+    void Awake ()
     {
-        if (Heldfruit == null)
-        {
-            Heldfruit = FruitGen.Genfruit();
-            Heldfruit.transform.SetParent(transform);
-        }
+        StartCoroutine(FruitGen.Genfruit());
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Heldfruit == null)
-        {
-            Heldfruit = FruitGen.Genfruit();
-            Heldfruit.transform.SetParent(transform);
-        }
+        Debug.Log(FruitGen.newfruit.name);
+ 
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -37,6 +33,7 @@ public class player : MonoBehaviour
            Heldfruit.GetComponent<Rigidbody2D>().simulated = true;
             Heldfruit.transform.SetParent(null);
             Heldfruit = null;
+            StartCoroutine(FruitGen.Genfruit());    
         }
     }
 }

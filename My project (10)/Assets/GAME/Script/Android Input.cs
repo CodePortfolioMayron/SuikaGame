@@ -29,9 +29,9 @@ public partial class @AndroidInput: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""touchpress"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""da467700-acd8-4dee-93f9-dd1b59b22e29"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -51,7 +51,7 @@ public partial class @AndroidInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""2e9b5e29-5fdc-48fe-b026-8c134ff602a1"",
                     ""path"": ""<Touchscreen>/Press"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""touchpress"",
