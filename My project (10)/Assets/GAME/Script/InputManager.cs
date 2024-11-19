@@ -10,7 +10,9 @@ public class InputManager : MonoBehaviour
     private Vector3 screenBounds;
     private float playerWidth ;
     private float playerHeight;
-    private Renderer playerRenderer;
+    public Renderer HeldfruitRenderer;
+
+    public int widthspace;
     public void Awake()
     {
          inputActions = new AndroidInput();
@@ -24,31 +26,13 @@ public class InputManager : MonoBehaviour
     {
         inputActions.Disable();
     }
-    //public void Start()
-    //{
-    //    inputActions.Move.touchpress.started += ctx => Startouch(ctx);
-    //    inputActions.Move.touchpress.canceled += ctx => Endtouch(ctx);
-    //}
-
-    //private void Endtouch(InputAction.CallbackContext ctx)
-    //{
-    //    Debug.Log("untouched ");
-    //    if (player.Heldfruit != null) 
-    //    { 
-    //    Dropfruit();
-    //     }
-    //}
-
-    //private void Startouch(InputAction.CallbackContext ctx)
-    //{
-    //    Debug.Log("touched ");
-
-    //}
+  
     public void Start()
     {
         Camera mainCamera = Camera.main;
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
-        playerRenderer = player.Heldfruit.GetComponent<Renderer>();
+        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width-55, Screen.height, mainCamera.transform.position.z));
+        player.transform.position = ClampToScreenBounds(player.transform.position);
+
     }
     public void Dropfruit()
     {
@@ -56,24 +40,27 @@ public class InputManager : MonoBehaviour
         player.Heldfruit.transform.SetParent(null);
         player.Heldfruit = null;
         StartCoroutine(fruitGen.Genfruit());
+       
     }
     public void Update()
     {
-        if(Input.touchCount > 0)
+        
+        if (Input.touchCount > 0)
         {
            Touch touch = Input.GetTouch(0);
             if(touch.phase == UnityEngine.TouchPhase.Began )
             {
                 Debug.Log("began touch");
-                //touch.phase == UnityEngine.TouchPhase.Stationary
-               // Vector2 touchPos = touch.position;
+
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, 5f, 0f));
-                player.transform.position = new Vector3(worldPosition.x, 5f, 0f);
-                if (player.Heldfruit != null)
+              
+                if (HeldfruitRenderer != null)
                 {
-                    playerWidth = playerRenderer.bounds.extents.x; // Half the width
-                    playerHeight = playerRenderer.bounds.extents.y; // Half the height
+                  
+                    playerWidth = HeldfruitRenderer.bounds.extents.x; // Half the width
+                    playerHeight = HeldfruitRenderer.bounds.extents.y; // Half the height
                 }
+               
                 player.transform.position = ClampToScreenBounds(new Vector3(worldPosition.x, 5f, 0f));
             }
             if (touch.phase == UnityEngine.TouchPhase.Moved)
@@ -89,7 +76,7 @@ public class InputManager : MonoBehaviour
             if (touch.phase == UnityEngine.TouchPhase.Ended || touch.phase == UnityEngine.TouchPhase.Canceled)
                 {
                     Debug.Log("end touch");
-                if ( player.Heldfruit != null ) {Dropfruit(); }
+                if ( player.Heldfruit != null && player.Heldfruit.activeInHierarchy ==true ) {Dropfruit(); }
                     
                 }
         }
@@ -100,5 +87,10 @@ public class InputManager : MonoBehaviour
         float clampedX = Mathf.Clamp(position.x, screenBounds.x * -1 + playerWidth, screenBounds.x - playerWidth);
         float clampedY = Mathf.Clamp(position.y, screenBounds.y * -1 + playerHeight, screenBounds.y - playerHeight);
         return new Vector3(clampedX, clampedY, position.z);
+    }
+
+    void fruitRender()
+    {
+        HeldfruitRenderer = player.HeldfruitRenderer;
     }
 }

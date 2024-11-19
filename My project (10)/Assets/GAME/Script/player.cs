@@ -6,6 +6,8 @@ public class player : MonoBehaviour
 {
     public FruitGen FruitGen;
     public GameObject Heldfruit;
+    public SpriteRenderer HeldfruitRenderer;
+    public Transform fruithandle;
 
 
     // Start is called before the first frame update
@@ -18,7 +20,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(FruitGen.newfruit.name);
+       
  
 
         if (Input.GetKey(KeyCode.A))
