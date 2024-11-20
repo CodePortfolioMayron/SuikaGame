@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FruitCombiner : MonoBehaviour
 {
-    public delegate void onCombineAction(int mergeScore);
-    public static event onCombineAction OnCombine;
     private int fruitindex;
     private Fruitinfo Fruitinfo;
 
@@ -25,7 +23,6 @@ public class FruitCombiner : MonoBehaviour
             {
                 int thisid = gameObject.GetInstanceID();
                 int otherid = other.gameObject.GetInstanceID();
-                OnCombine?.Invoke(info.pointswhenmerged);
                 if(thisid > otherid) {
                 
                     //watermelon
