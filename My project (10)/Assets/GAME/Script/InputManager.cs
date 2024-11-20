@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    public delegate void OnDropAction(int scoreAmount);
+    public static event OnDropAction OnDrop;
     private AndroidInput inputActions;
     private FruitGen fruitGen;
     [SerializeField]private player player;
@@ -36,6 +38,12 @@ public class InputManager : MonoBehaviour
     public void Dropfruit()
     {
         player.Heldfruit.GetComponent<Rigidbody2D>().simulated = true;
+        Fruitinfo fruitinfo = player.Heldfruit.GetComponent<Fruitinfo>();
+        if (fruitinfo != null)
+        {
+            Debug.Log("score inc");
+            OnDrop?.Invoke(fruitinfo.fruitindex);
+        }
         player.Heldfruit.transform.SetParent(null);
         player.Heldfruit = null;
         StartCoroutine(fruitGen.Genfruit());

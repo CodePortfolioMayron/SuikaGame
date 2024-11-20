@@ -11,11 +11,13 @@ public class ScoreSystem : MonoBehaviour
     public void OnEnable()
     {
         player.OnDrop += AddScore;
+        InputManager.OnDrop += AddScore;
         FruitCombiner.OnCombine += MergeScore;
     }
     public void OnDisable()
     {
         player.OnDrop -= AddScore;
+        InputManager.OnDrop -= AddScore;
         FruitCombiner.OnCombine -= MergeScore;
     }
     public void AddScore(int ID)

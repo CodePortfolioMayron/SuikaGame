@@ -273,9 +273,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 250142409575937484, guid: 4e5c1eb0987146f459e82933e0debb7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1142266
+      objectReference: {fileID: 0}
     - target: {fileID: 2065090320986899346, guid: 4e5c1eb0987146f459e82933e0debb7e, type: 3}
       propertyPath: m_Name
       value: FruitBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 3532309399031311157, guid: 4e5c1eb0987146f459e82933e0debb7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1142266
       objectReference: {fileID: 0}
     - target: {fileID: 8903101391172485387, guid: 4e5c1eb0987146f459e82933e0debb7e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,6 +472,18 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 741968541432693012, guid: df97528aea36ea142af6e3099422a61a, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939246191615618717, guid: df97528aea36ea142af6e3099422a61a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939246191615618717, guid: df97528aea36ea142af6e3099422a61a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 438
+      objectReference: {fileID: 0}
     - target: {fileID: 7258901358224181408, guid: df97528aea36ea142af6e3099422a61a, type: 3}
       propertyPath: m_Name
       value: UI Canvas
