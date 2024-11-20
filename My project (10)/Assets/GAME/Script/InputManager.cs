@@ -8,10 +8,9 @@ public class InputManager : MonoBehaviour
     private FruitGen fruitGen;
     [SerializeField]private player player;
     private Vector3 screenBounds;
-    private float playerWidth ;
-    private float playerHeight;
-    public Renderer HeldfruitRenderer;
 
+    public float pixoffsetx;
+    public float pixoffsety;
     public int widthspace;
     public void Awake()
     {
@@ -30,8 +29,8 @@ public class InputManager : MonoBehaviour
     public void Start()
     {
         Camera mainCamera = Camera.main;
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width-55, Screen.height, mainCamera.transform.position.z));
-        player.transform.position = ClampToScreenBounds(player.transform.position);
+        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -1));
+        //player.transform.position = ClampToScreenBounds(player.transform.position);
 
     }
     public void Dropfruit()
@@ -44,7 +43,7 @@ public class InputManager : MonoBehaviour
     }
     public void Update()
     {
-        
+      
         if (Input.touchCount > 0)
         {
            Touch touch = Input.GetTouch(0);
@@ -52,16 +51,8 @@ public class InputManager : MonoBehaviour
             {
                 Debug.Log("began touch");
 
-                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, 5f, 0f));
-              
-                if (HeldfruitRenderer != null)
-                {
-                  
-                    playerWidth = HeldfruitRenderer.bounds.extents.x; // Half the width
-                    playerHeight = HeldfruitRenderer.bounds.extents.y; // Half the height
-                }
-               
-                player.transform.position = ClampToScreenBounds(new Vector3(worldPosition.x, 5f, 0f));
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0f));
+                player.transform.position = ClampToScreenBounds(new Vector3(worldPosition.x, player.transform.position.y, 0f));
             }
             if (touch.phase == UnityEngine.TouchPhase.Moved)
             {
@@ -72,6 +63,7 @@ public class InputManager : MonoBehaviour
                 Vector3 move = new Vector3(deltaposition.x, 0, 0) * Time.deltaTime;
 
                 player.transform.position = ClampToScreenBounds(player.transform.position + move);
+                Debug.Log("fruitsize"+fruitGen.newfruit.transform.localScale.x+"offfset"+fruitGen.offsetx);
             }
             if (touch.phase == UnityEngine.TouchPhase.Ended || touch.phase == UnityEngine.TouchPhase.Canceled)
                 {
@@ -84,13 +76,22 @@ public class InputManager : MonoBehaviour
 
     private Vector3 ClampToScreenBounds(Vector3 position)
     {
-        float clampedX = Mathf.Clamp(position.x, screenBounds.x * -1 + playerWidth, screenBounds.x - playerWidth);
-        float clampedY = Mathf.Clamp(position.y, screenBounds.y * -1 + playerHeight, screenBounds.y - playerHeight);
-        return new Vector3(clampedX, clampedY, position.z);
+        float clampedY; float clampedX;
+        if (fruitGen.offsetx < player.transform.localScale.x)
+        {
+
+            clampedX = Mathf.Clamp(position.x, screenBounds.x * -1 + player.transform.localScale.x - pixoffsetx, screenBounds.x - player.transform.localScale.x + pixoffsetx);
+            clampedY = Mathf.Clamp(position.y, screenBounds.y * -1 + player.transform.localScale.y - pixoffsety, screenBounds.y - player.transform.localScale.y + pixoffsety);
+
+            return new Vector3(clampedX, clampedY, 0f);
+        }
+        else
+            clampedX = Mathf.Clamp(position.x, screenBounds.x * -1 + fruitGen.offsetx - pixoffsetx, screenBounds.x - fruitGen.offsetx + pixoffsetx);
+        clampedY = Mathf.Clamp(position.y, screenBounds.y * -1 + fruitGen.offsety-pixoffsety, screenBounds.y - fruitGen.offsety+pixoffsety);
+
+        return new Vector3(clampedX, clampedY, 0f);
     }
 
-    void fruitRender()
-    {
-        HeldfruitRenderer = player.HeldfruitRenderer;
-    }
+    
 }
+

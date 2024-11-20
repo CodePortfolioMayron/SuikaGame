@@ -11,5 +11,6 @@ public static GameManager instance;
         {
             instance = this;
         }
+        
     }
 }

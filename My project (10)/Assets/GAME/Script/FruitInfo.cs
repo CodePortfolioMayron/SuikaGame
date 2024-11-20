@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class Fruitinfo : MonoBehaviour
 {
@@ -10,10 +12,23 @@ public class Fruitinfo : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public bool timer=false;
+    public float timers=3;
+
     public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.mass = fruitmass;
+    }
+    public void Update()
+    {
+        if (timer)
+        {
+            timers -= Time.deltaTime;
+            if(timers < 0) { Debug.Log("gone over "); GameObject.Find("Square").GetComponent<topboxtrigger>().restart(); }
+
+        }else { timers = 3; }
+
     }
 
 }

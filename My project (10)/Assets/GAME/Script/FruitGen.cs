@@ -4,38 +4,40 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public  class FruitGen : MonoBehaviour
 {
-    public GameObject fruittemplate;
  
     public Transform pos;
     public GameObject newfruit;
     public float resetime;
+    
 
     public SpriteRenderer spriteRenderer;
     public float timer = 5f;
 
     public player player;
     public InputManager inputManager;
-
+    public float offsety;
+    public float offsetx;
+    
     public IEnumerator Genfruit()
     {
         int fruitindex = Random.Range(0, 4);//random fruit from fruit array
        
         newfruit = Instantiate(FruitArray.Instance.fruitArray[fruitindex], pos.position, Quaternion.identity);
+        newfruit.transform.SetParent(player.transform);
         newfruit.GetComponent<Rigidbody2D>().simulated = false;
         spriteRenderer = newfruit.GetComponent<SpriteRenderer>();
         player.Heldfruit = newfruit;
 
         float playersize = player.transform.localScale.y;
-        float fruitsize = newfruit.transform.localScale.y;
-        float offset= playersize + fruitsize;
-        offset *=-1;
+        float fruitsizey = newfruit.transform.localScale.y/2;
+        offsetx = newfruit.transform.localScale.x/2;
+        offsety= (playersize + fruitsizey);
+        offsety *=-1;
       
-        Debug.Log("offset"+offset);
-       
-        Vector2 fruitposwithplayer = new Vector2 (player.transform.position.x, offset);
-        newfruit.transform.SetParent(player.transform);
-        //newfruit.transform.position = fruitposwithplayer;
-        newfruit.transform.localPosition = new Vector3(0, offset, 0);
+        Debug.Log("playersize"+playersize+"fruisize"+fruitsizey+"offsety"+offsety);
+        //fruitposwithplayer
+        //newfruit.transform.position.Set(player.transform.position.x,player.transform.position.y+offsety,player.transform.position.z);
+        newfruit.transform.localPosition =new Vector3(0, offsety, 0);
 
         
         

@@ -6,7 +6,6 @@ public class player : MonoBehaviour
 {
     public FruitGen FruitGen;
     public GameObject Heldfruit;
-    public SpriteRenderer HeldfruitRenderer;
     public Transform fruithandle;
 
 
