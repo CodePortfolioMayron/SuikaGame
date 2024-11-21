@@ -70,8 +70,12 @@ public class InputManager : MonoBehaviour
                 // move the player based on the delta
                 Vector3 move = new Vector3(deltaposition.x, 0, 0) * Time.deltaTime;
 
-                player.transform.position = ClampToScreenBounds(player.transform.position + move);
-                Debug.Log("fruitsize"+fruitGen.newfruit.transform.localScale.x+"offfset"+fruitGen.offsetx);
+                // player.transform.position = ClampToScreenBounds(player.transform.position + move);
+
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0f));
+                player.transform.position = ClampToScreenBounds(new Vector3(worldPosition.x, player.transform.position.y, 0f));
+
+                //Debug.Log("fruitsize"+fruitGen.newfruit.transform.localScale.x+"offfset"+fruitGen.offsetx);
             }
             if (touch.phase == UnityEngine.TouchPhase.Ended || touch.phase == UnityEngine.TouchPhase.Canceled)
                 {

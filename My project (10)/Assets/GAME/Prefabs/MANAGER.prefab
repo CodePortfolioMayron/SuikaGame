@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 7347487268703064874}
   - component: {fileID: 8109776997621244694}
   - component: {fileID: 7445156102302061764}
+  - component: {fileID: 8212188761369044805}
   m_Layer: 0
   m_Name: MANAGER
   m_TagString: MANAGER
@@ -190,3 +191,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29ae1fda5cc6eb48a2aaea97b9655c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8212188761369044805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528541319636303709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20e84563c38eab47a9338cafffd6e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultSprite: {fileID: 21300000, guid: f190b3a6b294dd04b80e39fdc6ec059a, type: 2}
+  TempSkin: {fileID: 21300000, guid: b9bb73853f945404d9ac58842c5f6201, type: 3}
+  UseSkin: 0
+  Paused: 0
+  inputManager: {fileID: 6527146981950308023}
+  FruitArray: {fileID: 8109776997621244694}

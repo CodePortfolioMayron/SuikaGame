@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4039248737494827270}
   - component: {fileID: 5899983768443727957}
   - component: {fileID: 1707230312428937819}
+  - component: {fileID: -8163727184802753091}
   m_Layer: 0
   m_Name: Fruit- 6
   m_TagString: Fruits
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 5908855654923241334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53, y: 5.3, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 720794539337696934}
@@ -75,10 +76,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingLayerID: -1852519797
+  m_SortingLayer: 1
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: b9bb73853f945404d9ac58842c5f6201, type: 3}
   m_Color: {r: 0.82592714, g: 0.9339623, b: 0.23349057, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,6 +181,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0e0ab4abab0e24d94e61586d8de634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &-8163727184802753091
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5908855654923241334}
+  m_Enabled: 1
+  m_SortingLayerID: -1852519797
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &7295986247765250678
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,11 +268,11 @@ SpriteMask:
   m_SortingOrder: 0
   m_Sprite: {fileID: 8177471321811730583, guid: 87aaca0a643d54397ba969dab4fc8875, type: 3}
   m_MaskAlphaCutoff: 0.125
-  m_FrontSortingLayerID: 0
+  m_FrontSortingLayerID: -1852519797
   m_BackSortingLayerID: 0
-  m_FrontSortingLayer: 0
+  m_FrontSortingLayer: 1
   m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
+  m_FrontSortingOrder: 5
+  m_BackSortingOrder: 5
+  m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
