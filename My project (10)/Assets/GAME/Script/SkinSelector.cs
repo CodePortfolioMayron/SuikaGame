@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SkinSelector : MonoBehaviour
 {
-    [Header ("SPRITES")]
-    public Sprite DefaultSprite;
-    public Sprite TempSkin;
+    [Header ("SKIN SPRITES")]
+    public Sprite[] DefaultSprite;
+    public Sprite[] TempSkin;
     [Header("BOOLS")]
     public bool UseSkin;
     public bool Paused;
@@ -14,6 +14,13 @@ public class SkinSelector : MonoBehaviour
     public InputManager inputManager;
       public FruitArray FruitArray;
 
+    public void Start ()
+    {
+        if (inputManager.player.Heldfruit.GetComponent<SpriteRenderer>().sprite = TempSkin[0])
+        {
+            UseSkin = true;
+        }
+    }
 
 
     public void Pause()
@@ -35,8 +42,8 @@ public class SkinSelector : MonoBehaviour
         UseSkin = !UseSkin;
         GameObject[] fruits = GameObject.FindGameObjectsWithTag("Fruits");
         Sprite usedsprite;
-        if(UseSkin) { usedsprite = TempSkin; }
-        else { usedsprite = DefaultSprite; }
+        if(UseSkin) { usedsprite = TempSkin[0]; }
+        else { usedsprite = DefaultSprite[0]; }
 
         foreach (GameObject fruit in fruits)
         {

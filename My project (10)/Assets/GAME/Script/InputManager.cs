@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    
     public delegate void OnDropAction(int scoreAmount);
     public static event OnDropAction OnDrop;
+    [Header("REFERENCES")]
     private AndroidInput inputActions;
     private FruitGen fruitGen;
-    [SerializeField]private player player;
+    public player player;
     private Vector3 screenBounds;
 
     public float pixoffsetx;
@@ -32,7 +35,6 @@ public class InputManager : MonoBehaviour
     {
         Camera mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -1));
-        //player.transform.position = ClampToScreenBounds(player.transform.position);
 
     }
     public void Dropfruit()
@@ -55,27 +57,26 @@ public class InputManager : MonoBehaviour
         if (Input.touchCount > 0)
         {
            Touch touch = Input.GetTouch(0);
-            if(touch.phase == UnityEngine.TouchPhase.Began )
+            if (touch.phase == UnityEngine.TouchPhase.Began)
             {
                 Debug.Log("began touch");
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                {
+                    Debug.Log("Touch is over a UI element!");
+                }
+                else { 
 
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0f));
                 player.transform.position = ClampToScreenBounds(new Vector3(worldPosition.x, player.transform.position.y, 0f));
+                }
             }
             if (touch.phase == UnityEngine.TouchPhase.Moved)
             {
-                Debug.Log("began moving");
-                Vector2 deltaposition = touch.deltaPosition;
-
-                // move the player based on the delta
-                Vector3 move = new Vector3(deltaposition.x, 0, 0) * Time.deltaTime;
-
-                // player.transform.position = ClampToScreenBounds(player.transform.position + move);
 
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0f));
                 player.transform.position = ClampToScreenBounds(new Vector3(worldPosition.x, player.transform.position.y, 0f));
 
-                //Debug.Log("fruitsize"+fruitGen.newfruit.transform.localScale.x+"offfset"+fruitGen.offsetx);
             }
             if (touch.phase == UnityEngine.TouchPhase.Ended || touch.phase == UnityEngine.TouchPhase.Canceled)
                 {

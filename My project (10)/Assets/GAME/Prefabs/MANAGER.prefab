@@ -203,8 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20e84563c38eab47a9338cafffd6e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultSprite: {fileID: 21300000, guid: f190b3a6b294dd04b80e39fdc6ec059a, type: 2}
-  TempSkin: {fileID: 21300000, guid: b9bb73853f945404d9ac58842c5f6201, type: 3}
+  DefaultSprite:
+  - {fileID: 21300000, guid: f190b3a6b294dd04b80e39fdc6ec059a, type: 2}
+  TempSkin:
+  - {fileID: 21300000, guid: b9bb73853f945404d9ac58842c5f6201, type: 3}
   UseSkin: 0
   Paused: 0
   inputManager: {fileID: 6527146981950308023}

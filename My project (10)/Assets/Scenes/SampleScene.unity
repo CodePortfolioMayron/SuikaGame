@@ -492,10 +492,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2016912858}
-    - target: {fileID: 8212188761369044805, guid: a6809e7166d4c444b91a439b040122f8, type: 3}
-      propertyPath: TempSkin
-      value: 
-      objectReference: {fileID: 21300000, guid: b9bb73853f945404d9ac58842c5f6201, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -515,11 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 1939246191615618717, guid: df97528aea36ea142af6e3099422a61a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13979.449
-      objectReference: {fileID: 0}
-    - target: {fileID: 1939246191615618717, guid: df97528aea36ea142af6e3099422a61a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 878.3048
+      value: 141.20656
       objectReference: {fileID: 0}
     - target: {fileID: 1985278591111937053, guid: df97528aea36ea142af6e3099422a61a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
