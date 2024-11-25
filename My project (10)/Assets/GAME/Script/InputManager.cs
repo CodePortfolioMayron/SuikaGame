@@ -34,7 +34,7 @@ public class InputManager : MonoBehaviour
     public void Start()
     {
         Camera mainCamera = Camera.main;
-        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -1));
+        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width*2, Screen.height, -1));
 
     }
     public void Dropfruit()

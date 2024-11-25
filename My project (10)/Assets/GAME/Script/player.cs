@@ -10,7 +10,7 @@ public class player : MonoBehaviour
     public FruitGen FruitGen;
     public GameObject Heldfruit;
     public Transform fruithandle;
-
+    public LineRenderer lineRenderer;
 
     // Start is called before the first frame update
     void Awake ()
@@ -22,7 +22,8 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        lineRenderer.SetPosition(0, this.transform.position);
+        lineRenderer.SetPosition(1,new Vector3(transform.transform.position.x,this.transform.position.y-12,this.transform.position.z));
  
 
         if (Input.GetKey(KeyCode.A))
