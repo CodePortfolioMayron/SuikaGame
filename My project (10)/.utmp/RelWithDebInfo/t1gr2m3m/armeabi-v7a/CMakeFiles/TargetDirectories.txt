@@ -1,0 +1,5 @@
+C:/Users/pc requiem/Documents/GitHub/Suika-Game/SuikaGame/unity/My project (10)/.utmp/RelWithDebInfo/t1gr2m3m/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/pc requiem/Documents/GitHub/Suika-Game/SuikaGame/unity/My project (10)/.utmp/RelWithDebInfo/t1gr2m3m/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+C:/Users/pc requiem/Documents/GitHub/Suika-Game/SuikaGame/unity/My project (10)/.utmp/RelWithDebInfo/t1gr2m3m/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/pc requiem/Documents/GitHub/Suika-Game/SuikaGame/unity/My project (10)/.utmp/RelWithDebInfo/t1gr2m3m/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/pc requiem/Documents/GitHub/Suika-Game/SuikaGame/unity/My project (10)/.utmp/RelWithDebInfo/t1gr2m3m/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

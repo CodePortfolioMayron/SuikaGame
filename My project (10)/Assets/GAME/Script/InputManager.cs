@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -19,16 +17,16 @@ public class InputManager : MonoBehaviour
     public int widthspace;
     public void Awake()
     {
-         inputActions = new AndroidInput();
+        // inputActions = new AndroidInput();
         fruitGen = GetComponent<FruitGen>();
     }
     private void OnEnable()
     {
-        inputActions.Enable();
+       // inputActions.Enable();
     }
     public void OnDisable()
     {
-        inputActions.Disable();
+       // inputActions.Disable();
     }
   
     public void Start()
