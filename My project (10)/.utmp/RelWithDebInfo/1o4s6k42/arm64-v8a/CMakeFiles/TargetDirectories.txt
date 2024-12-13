@@ -1,0 +1,5 @@
+C:/Users/pc requiem/UNITYPROJECTS/My project (10)/.utmp/RelWithDebInfo/1o4s6k42/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/pc requiem/UNITYPROJECTS/My project (10)/.utmp/RelWithDebInfo/1o4s6k42/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/pc requiem/UNITYPROJECTS/My project (10)/.utmp/RelWithDebInfo/1o4s6k42/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/pc requiem/UNITYPROJECTS/My project (10)/.utmp/RelWithDebInfo/1o4s6k42/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/pc requiem/UNITYPROJECTS/My project (10)/.utmp/RelWithDebInfo/1o4s6k42/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

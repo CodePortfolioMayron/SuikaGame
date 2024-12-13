@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class player : MonoBehaviour
@@ -15,8 +12,12 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
     void Awake ()
     {
-        StartCoroutine(FruitGen.Genfruit());
+       // StartCoroutine(FruitGen.Genfruit());
     
+    }
+    public void Start()
+    {
+        StartCoroutine(FruitGen.Genfruit());
     }
 
     // Update is called once per frame

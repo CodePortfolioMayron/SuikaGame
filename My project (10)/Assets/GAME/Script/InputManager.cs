@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -19,16 +17,16 @@ public class InputManager : MonoBehaviour
     public int widthspace;
     public void Awake()
     {
-         inputActions = new AndroidInput();
+        // inputActions = new AndroidInput();
         fruitGen = GetComponent<FruitGen>();
     }
     private void OnEnable()
     {
-        inputActions.Enable();
+       // inputActions.Enable();
     }
     public void OnDisable()
     {
-        inputActions.Disable();
+       // inputActions.Disable();
     }
   
     public void Start()
@@ -57,10 +55,10 @@ public class InputManager : MonoBehaviour
         if (Input.touchCount > 0)
         {
            Touch touch = Input.GetTouch(0);
-            if (touch.phase == UnityEngine.TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began)
             {
                 Debug.Log("began touch");
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                //Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
                 {
                     Debug.Log("Touch is over a UI element!");
